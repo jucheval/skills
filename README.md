@@ -1,16 +1,14 @@
-<p>
-  <a href="https://www.aihero.dev/s/skills-newsletter">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://res.cloudinary.com/total-typescript/image/upload/v1777382277/skills-repo-dark_2x.png">
-      <source media="(prefers-color-scheme: light)" srcset="https://res.cloudinary.com/total-typescript/image/upload/v1777382277/skill-repo-light_2x.png">
-      <img alt="Skills" src="https://res.cloudinary.com/total-typescript/image/upload/v1777382277/skill-repo-light_2x.png" width="369">
-    </picture>
-  </a>
-</p>
+# Personal fork of Matt Pocock's Skills
 
-# Skills For Real Engineers
+This is a personal fork of [mattpocock/skills](https://github.com/mattpocock/skills). I merely adapt its skills to my own workflow and needs. See:
 
-[![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
+- [INSTALL.md](INSTALL.md): installation instructions (fork, clone, symlink to your skills folders)
+- [UPDATE.md](UPDATE.md): update instructions (fetch from upstream, merge, push)
+- [PATCHES.md](PATCHES.md): list of local patches and how to keep them in sync with upstream
+
+The rest of this file is a copy of the original `README.md`.
+
+---
 
 My agent skills that I use every day to do real engineering - not vibe coding.
 
@@ -104,7 +102,7 @@ In your agent, run it once per repo. It will:
 - Ask you what labels you apply to tickets when you triage them (`/triage` uses labels)
 - Ask you where you want to save any docs we create
 
-### 3. Bam - you're ready to go.
+### 3. Bam - you're ready to go
 
 ## Why These Skills Exist
 
