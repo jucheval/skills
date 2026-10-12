@@ -10,20 +10,19 @@ This file documents intentional divergences from upstream.
 
 | ID | File or path | Change type | Rationale | Sync considerations |
 | --- | --- | --- | --- | --- |
-| P001 | `skills/example/SKILL.md` | Modified | Adapt instructions to my workflow | Recheck instructions against upstream changes |
+| P001 | `skills\productivity\grilling\SKILL.md` | Modified | Use `vscode.askQuestions` for round formatting | Recheck instructions against upstream changes |
 
 ## Patch details
 
-### P001 — Adapt example skill
+### P001 — Use `vscode.askQuestions` for round formatting
 
-- **Files:** `skills/example/SKILL.md`
-- **Reason:** Explain the specific local requirement.
-- **Upstream behavior:** Describe the original behavior that matters.
-- **Local behavior:** Describe the intended modification.
+- **Files:** `skills\productivity\grilling\SKILL.md`
+- **Reason:** Simplify the UX reducing friction with hand-written responses.
+- **Upstream behavior:** Questions and answers are formatted as plain text with emojis. The user must manually number questions and provide answers in a separate message.
+- **Local behavior:** Questions and answers are formatted as a single message using `vscode.askQuestions`. The user can provide answers by clicking buttons.
 - **Sync checks:**
-  - Check whether upstream changed the same instructions.
-  - Verify the skill still follows the current skill format.
-- **Introduced in:** `<commit hash or PR>`
+  - Check if upstream improves the UX.
+- **Introduced after commit:** `2539c23989c06cbb9370faaaffc8fe667e6ed28b`
 
 ## Sync checklist
 
