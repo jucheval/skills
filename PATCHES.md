@@ -12,6 +12,7 @@ This file documents intentional divergences from upstream.
 | --- | --- | --- | --- | --- |
 | P001 | `skills\productivity\grilling\SKILL.md` | Modified | Use `vscode.askQuestions` for round formatting | Check if upstream comes with a better UI |
 | P002 | several files | Modified | Replace "leading word" by "high-signal word" | Check if upstream comes with a better wording |
+| P003 | `.github/workflows/release.yml` | Modified | Skip release workflow on forks | Check if upstream adds fork guards |
 
 ## Patch details
 
@@ -34,6 +35,16 @@ This file documents intentional divergences from upstream.
 - **Sync checks:**
   - Check if upstream improves the wording.
 - **Introduced after commit:** `e815c83b5fdb062aab0e770eb5c01c816f5bb4ae`
+
+### P003: Skip release workflow on forks
+
+- **Files:** `.github/workflows/release.yml`
+- **Reason:** The release workflow fails on forks because GitHub Actions is not permitted to create pull requests by default, and forks should not release upstream packages.
+- **Upstream behavior:** The release job runs on any push to `main`.
+- **Local behavior:** The release job only runs when `github.repository == 'mattpocock/skills'`.
+- **Sync checks:**
+  - Check if upstream adds fork guards to the release workflow.
+- **Introduced after commit:** `4203dcfc3ebc01f9dff522bad78b6099d2bfba4b`
 
 ## Sync checklist
 
