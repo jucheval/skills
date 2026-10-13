@@ -33,9 +33,9 @@ Fragments are deliberately heterogeneous. Examples of what could be a fragment:
 - A quote, a piece of dialogue, an overheard line.
 - A list of related observations that hang together by feel.
 - A complaint, a confession, a punchline.
-- A **leading word**: a compact metaphor or coinage the whole piece can hang on (one term that names the idea, the way _tracer bullets_ or _fog of war_ names a whole pattern).
+- A **high-signal word**: a compact metaphor or coinage the whole piece can hang on (one term that names the idea, the way _tracer bullets_ or _fog of war_ names a whole pattern).
 
-Of these, the leading word is the most valuable fragment to land. It is load-bearing: name the right one in explore and it shapes the structure, the transitions, and the title later, paying dividends through the entire exploit phase. When the conversation circles a recurring idea, push to coin a word for it.
+Of these, the high-signal word is the most valuable fragment to land. It is load-bearing: name the right one in explore and it shapes the structure, the transitions, and the title later, paying dividends through the entire exploit phase. When the conversation circles a recurring idea, push to coin a word for it.
 
 The novelist's diary is the model: years of unstructured noticings that later get mined for raw material. Fragments are noticings.
 
