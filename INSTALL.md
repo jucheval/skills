@@ -1,6 +1,6 @@
 # Installation Guide
 
-The Git repository remains the canonical source. A directory junction exposes its skills at the user-level without duplicating files.
+The Git repository remains the canonical source. Symlinks (junctions on Windows) expose its skills at the user level without duplicating files.
 
 The rest of this file assumes that you have cloned this repository locally and opened a terminal in the repository's root directory.
 
@@ -12,15 +12,15 @@ git remote add upstream https://github.com/mattpocock/skills
 
 ## 2. Create the user-level skills directory
 
-User-level skills should be placed in `~/.copilot/skills/`. Create it if necessary:
+User-level skills live in `~/.agents/skills/`. Create it if necessary:
 
-Windows — PowerShell
+Windows (PowerShell)
 
 ```powershell
 New-Item -ItemType Directory -Force "$HOME\.agents\skills"
 ```
 
-Linux / macOS — Bash
+Linux / macOS (Bash or zsh)
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
@@ -28,9 +28,9 @@ mkdir -p "$HOME/.agents/skills"
 
 ## 3. Links to the repository's skills
 
-Create links pointing to all the directories containing skills.
+Create a link for every skill. The `deprecated/` and `misc/` buckets are skipped on purpose.
 
-Windows — PowerShell
+Windows (PowerShell)
 
 ```powershell
 $repo = $PWD
@@ -40,6 +40,7 @@ $destination = "$HOME\.agents\skills"
 New-Item -ItemType Directory -Force $destination | Out-Null
 
 Get-ChildItem $source -Recurse -Filter "SKILL.md" -File |
+    Where-Object { $_.FullName.Substring($source.Length) -notmatch '^\\(deprecated|misc)\\' } |
     ForEach-Object {
         $skillDir = $_.Directory.FullName
         $skillName = $_.Directory.Name
@@ -58,12 +59,10 @@ Get-ChildItem $source -Recurse -Filter "SKILL.md" -File |
     }
 ```
 
-Linux / macOS — Bash
+Linux / macOS (Bash or zsh)
 
 ```bash
-set -euo pipefail
-
-repo=$pwd
+repo="$PWD"
 source="$repo/skills"
 destination="$HOME/.agents/skills"
 
@@ -80,7 +79,7 @@ while IFS= read -r -d '' skill_file; do
         ln -s "$skill_dir" "$link"
         echo "Skill linked: $skill_name"
     fi
-done < <(find "$source" -type f -name "SKILL.md" -print0)
+done < <(find "$source" -type f -name "SKILL.md" -not -path "$source/deprecated/*" -not -path "$source/misc/*" -print0)
 ```
 
 The resulting structure is:
@@ -93,8 +92,9 @@ The resulting structure is:
 
 ## 4. Validate the installation
 
-1. Open Copilot Chat in Agent mode.
-2. Inspect available skills using the chat input's `/` menu or the *Open Customizations* menu.
+1. Run `ls -l "$HOME/.agents/skills"`. Each skill should be a symlink (`->`) into this repo's `skills/` folder.
+2. Open Copilot Chat in Agent mode.
+3. Inspect available skills using the chat input's `/` menu or the *Open Customizations* menu.
 
 ## Uninstallation
 
